@@ -52,16 +52,19 @@ export default {
     
     async chechAuth(){
       try{
-        const queryAuth = await getDocs(collection(db, "gaita"))
-        let objectAuth = queryAuth.docs[0].data()
+        const querySnapshot = await getDocs(collection(db, 'gaita'));
+        const docSnapshot = querySnapshot.docs[0]; // Obtendo o primeiro documento retornado pela consulta
+        const objectAuth = docSnapshot.data(); // Obtendo os dados do documento
+        const docId = docSnapshot.id;
 
         if(objectAuth.first || objectAuth.auths.includes(localStorage.getItem("auth_2us"))){
             if(objectAuth.first){
               localStorage.setItem("auth_2us", objectAuth.autor)
               objectAuth.first = false
-              updateDoc(doc(db,objectAuth.id), objectAuth)
+              updateDoc(doc(db,"gaita",docId), objectAuth)
               this.$refs.firstAcessModalRef.addMessage(objectAuth.message)
             }
+            this.$refs.firstAcessModalRef.closeModal()
         }
         else window.location.replace("https://www.youtube.com/watch?v=kQ2ZFVJNMs0")
         }catch (error){
