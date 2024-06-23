@@ -66,7 +66,7 @@ export default {
         }else if(objectAuth.auths.includes(localStorage.getItem("auth_2us"))){
           this.$refs.firstAcessModalRef.closeModal()
         }else window.location.replace("https://www.youtube.com/watch?v=kQ2ZFVJNMs0")
-        
+
         }catch (error){
         console.error("error", error)
       }
@@ -143,6 +143,7 @@ header{
   text-align: center;
 
   padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .center-menu{
