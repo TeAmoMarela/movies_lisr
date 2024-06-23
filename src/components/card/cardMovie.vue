@@ -43,7 +43,8 @@ export default {
     background-color: #FFD0EC;
 
     height: 25rem;
-    width: 100%;
+    width: 300px;
+    max-height: 400px;
 
     overflow: hidden;
 
@@ -56,6 +57,20 @@ export default {
     justify-content: center;
 
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    transition: all .3s ease-in;
+
+    opacity: .85;
+
+}
+
+.card:hover{
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.card:hover > .card:not(:hover){
+    opacity: .5;
 }
 
 .info-card{

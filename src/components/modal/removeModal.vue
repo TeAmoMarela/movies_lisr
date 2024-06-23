@@ -64,20 +64,4 @@
 
     font-size: 1.2rem;
 }
-
-.remove-modal form .cancel{
-    margin-top: 1rem;
-    background-color: transparent;
-    border: 2px solid #000;
-
-    margin-bottom: .25rem;
-}
-
-.remove-modal form .button-confirm{
-    border: none;
-
-    background-color: var(--dark-purple);
-    border: 2px solid var(--dark-purple);
-    color: #fff;
-}
 </style>

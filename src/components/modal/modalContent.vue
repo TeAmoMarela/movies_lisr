@@ -29,6 +29,8 @@
 
     opacity: 0;
     visibility: hidden;
+
+    transition: all .2s;
 }
 
 .modal-content.active{
@@ -41,5 +43,11 @@
     color: #000;
 
     padding: 1rem 2rem;
+
+    transform: scale(0);  
+    transition: all .2s;
+}
+.modal-content.active .modal{
+    transform: scale(1);
 }
 </style>

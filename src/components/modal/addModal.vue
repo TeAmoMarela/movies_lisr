@@ -114,21 +114,7 @@ import { addDoc, collection } from "firebase/firestore";
     font-size: 1.25rem;
 }
 
-.add-modal form .cancel{
-    margin-top: 1rem;
-    background-color: transparent;
-    border: 2px solid #000;
 
-    margin-bottom: .25rem;
-}
-
-.add-modal form .button-confirm{
-    border: none;
-
-    background-color: var(--dark-purple);
-    border: 2px solid var(--dark-purple);
-    color: #fff;
-}
 
 .loader{
     width: 5rem;

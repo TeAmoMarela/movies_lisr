@@ -11,20 +11,20 @@
       <div v-if="!filmes.length" class="center-menu" >
         <div class="imagem-load"> 
           <img src="./assets/load1.svg" alt="load-wait" style="width: 100%;">
-           <h2>Sem Filmes</h2>
+        <h2>Sem Filmes : (</h2>
         </div>
       </div>
       <div class="mural" v-else>
         <CardMovie v-for="filme in filmes" :name="filme.name" :link="filme.link" :autor="filme.Autor" :key="filme.id" @was-watched="removerFilme(filme)" />
       </div>
     </main>
-    <div class="add-box" @click="toggleAddModal()">
-      Add
-    </div>
-    <AddModal ref="addModalRef" @filmeAdicionado ='carregarFilmes()' :filmes="filmes"/>
+  </div>
+  <div class="add-box" @click="toggleAddModal()">
+    Add
+  </div>
+  <AddModal ref="addModalRef" @filmeAdicionado ='carregarFilmes()' :filmes="filmes"/>
     <RemoveModal ref="removeModalRef" @filmeExcluido="carregarFilmes()"/>
     <FirstAcessModal ref="firstAcessModalRef"/>
-  </div>
 </template>
 
 <script>
@@ -131,6 +131,40 @@ export default {
   font-size: 1.2rem;
 }
 
+.button-confirm{
+  border: none;
+
+  background-color: var(--dark-purple);
+  border: 2px solid var(--dark-purple);
+  color: #fff;
+
+  transition: all .3s ease;
+
+  cursor: pointer;
+}
+
+.button-confirm:hover{
+  border: 2px solid var(--bg-purple);
+  background-color: #fff;
+  color: var(--bg-purple);
+}
+
+input.cancel{
+  margin-top: 1rem;
+  background-color: transparent;
+  border: 2px solid #000;
+
+  margin-bottom: .25rem;
+  transition: all .3s ease;
+
+  cursor: pointer;
+}
+
+input.cancel:hover{
+  background-color: #ff0000;
+  color: #fff
+}
+
 header{
   position: fixed;
   top: 0;
@@ -151,8 +185,10 @@ header{
   left: 0;
   bottom: 0;
 
+  margin: 0 auto;
+
+  height: 90%;
   width: 100%;
-  height: 80%;
 
   display: grid;
 
@@ -161,8 +197,17 @@ header{
 }
 
 .center-menu .imagem-load{
-  width: 80%;
+  width: 30%;
+  height: 100%;
+
+  min-height: 500px;
+  min-width: 350px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 
 main{
   margin-top: 5dvh;
@@ -172,9 +217,20 @@ main{
 main .mural{
   display: grid;
 
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 338px);
+  justify-content: flex-start;
+  
+  gap: 2rem 4.75%;
 
   padding: .75rem 0;
+}
+
+@media (max-width: 1350px)  {
+  main .mural{
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .add-box{
@@ -184,6 +240,7 @@ main .mural{
   right: 5%;
 
   background-color: var(--dark-purple);
+  color: #fff ;
   
   height: 3rem;
   width: 3rem;
@@ -194,7 +251,14 @@ main .mural{
   font-size: 1.25rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  cursor: pointer
+  cursor: pointer;
+
+  transition: all .3s ease-in;
+}
+
+.add-box:hover{
+  background-color: #fff;
+  color: var(--bg-purple);
 }
 
 .animation-spawn{
@@ -206,5 +270,9 @@ main .mural{
     transform: translateY(-1rem);
     opacity: 0;
   }
+}
+
+@media screen {
+  
 }
 </style>
